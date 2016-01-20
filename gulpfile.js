@@ -1,5 +1,4 @@
 var gulp = require('gulp'),
-    spawn = require('child_process').spawn,
     mocha = require('gulp-mocha'),
     jshint = require('gulp-jshint'),
     gutil = require('gulp-util'),
@@ -109,12 +108,6 @@ gulp.task('bs-reload', function () {
   browserSync.reload();
 });
 
-gulp.task('dynamodb', function(){
-    child = spawn('java', ['-Dbin/dynamodb/DynamoDBLocal_lib', '-jar', 'bin/dynamodb/DynamoDBLocal.jar', '-sharedDb', '-dbPath', '.db']);
-    child.stdout.pipe(process.stdout);
-    child.stderr.pipe(process.stderr);
-});
-
 gulp.task('dev-env', function(){
     process.env.PROJECT_DIR = __dirname;
     process.env.STATIC_LIBS = 'bower_components';
@@ -123,7 +116,7 @@ gulp.task('dev-env', function(){
     process.env.PORT = 8080;
 });
 
-gulp.task('start', ['dev-env', 'dynamodb', 'browser-sync'], function () {
+gulp.task('start', ['dev-env', 'browser-sync'], function () {
   gulp.watch('public/**/*.*', ['bs-reload']);
 });
 
