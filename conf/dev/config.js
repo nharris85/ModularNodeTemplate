@@ -8,6 +8,13 @@ function pluginDir(service){
 
 module.exports =  [
     pluginDir('app'),
+    /** Replace http plugin with https to enable https
+    {
+        packagePath: pluginDir('https'),
+        key: path.join(__dirname, 'key.pem'),
+        cert: path.join(__dirname, 'cert.pem')
+    },
+    */
     pluginDir('http'),
     pluginDir('home'),
     pluginDir('nav'),
