@@ -1,0 +1,31 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="My Web App">
+    <meta name="author" content="Author">
+    <base href="/">
+
+    <title>Brand</title>
+
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" charset="UTF-8"/>
+    <link rel="stylesheet" href="app.css" charset="UTF-8"/>
+</head>
+<body>
+    <div class="container">
+        <navbar></navbar>
+
+        <div ng-view></div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">
+                &#169; 2015 My Company, Inc.
+            </p>
+        </div>
+    </footer>
+
+    <script src='lib/requirejs/require.js' data-main='main.js'></script>
+
+</body>
+</html>
