@@ -113,3 +113,6 @@ Each plugin has control over defining their own controllers. This was enabled by
 
 Routes must be defined a configuration phase in Angular. This means that they are all defined in the 'app' plugin. This is not ideal in my opinion but I think the only way to delegate this responsibility to other plugins is to define a separate angular module and have 'app' depend on that module. You are still having to make 'app' have dirty knowledge of the plugin so this is only a moderate win with regards to design. This template doesn't bother to do that since there aren't any routes really.
 
+## 404 Error Handling
+
+Because of the single page design of using Angulars client side routing with real paths, the server needs to serve up the index.html file if the user decides to refresh the page when they are viewing a resource. Additionally, the server needs to send a 404 error if the user tries to access a page that doesn't exist. This proved problematic and I solved in a less than ideal way by having the 404 module depend on all other view modules. Because of this you will need to make sure to add your new module to it's consumes list so that your route doesn't get clobbered by the 404 plugin. Since loading order for plugins isn't guaranteed you may not notice this problem immediately if your plugin gets loaded before the 404 plugin.
