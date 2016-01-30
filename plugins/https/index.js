@@ -10,6 +10,7 @@ define(function(require){
         var path = require('path'),
             lodash = require('lodash'),
             fs = require('fs'),
+            https = require('https'),
             app = imports.app.app;
 
 
